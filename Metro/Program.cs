@@ -13,13 +13,13 @@ namespace Metro
 {
     class Program
     {
-        
+
 
         static void Main(string[] args)
         {
             AppelApi metroapi = new AppelApi("https://data.metromobilite.fr/api/linesNear/json?x=5.709360123&y=45.176494599999984&dist=900&details=true");
 
-            // Display the content.  
+            // Display the content.  On get grace à la variable responseFromServer de la bibli AppelApi
             List<Lines> lines = JsonConvert.DeserializeObject<List<Lines>>(metroapi.responseFromServer);
             // transformation liste en Json : String JSON = JsonConvert.SerializeObject(lines);
 
@@ -27,6 +27,7 @@ namespace Metro
             * seulement le first de cette nouvelle liste
             *  => Requete linq
             */
+
             List<Lines> lineSansDoublons = lines.GroupBy(n => n.name).Select(x => x.First()).ToList();
 
             /*
@@ -55,8 +56,6 @@ namespace Metro
             {
                 WriteLine($"nom_ligne { line.name}");
             }
-
-           
 
             ReadLine(); // sinon le programme se ferme dans lire le résultat
         }

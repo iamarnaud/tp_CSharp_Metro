@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metro", "Metro\Metro.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaBibliotheque", "MaBibliotheque\MaBibliotheque.csproj", "{ABB75364-8FDD-478A-9B7E-FD65689EDEBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroMVVM", "MetroMVVM\MetroMVVM.csproj", "{519E726D-4579-45D0-B940-12F61BBA8F54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{ABB75364-8FDD-478A-9B7E-FD65689EDEBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABB75364-8FDD-478A-9B7E-FD65689EDEBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABB75364-8FDD-478A-9B7E-FD65689EDEBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{519E726D-4579-45D0-B940-12F61BBA8F54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{519E726D-4579-45D0-B940-12F61BBA8F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{519E726D-4579-45D0-B940-12F61BBA8F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{519E726D-4579-45D0-B940-12F61BBA8F54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

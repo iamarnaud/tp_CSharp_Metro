@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metro
 {
-    class Lines
+    public class Lines
     {
         // classes générées par json2csharp
         public string id { get; set; }
