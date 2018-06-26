@@ -11,7 +11,8 @@
 
     <Grid>
 
-        <m:Map CredentialsProvider="AlIYClzyMbXh4GMtrvVi6xMfLfIxhKb2BiDZ1eihB5J4VEtA3FU-T5IGLzKVAehY" Name="Map" Mode="AerialWithLabels" Center="45.189004,5.724559" ZoomLevel="15" Margin="10,218,305,10"/>
+        <m:Map CredentialsProvider="AlIYClzyMbXh4GMtrvVi6xMfLfIxhKb2BiDZ1eihB5J4VEtA3FU-T5IGLzKVAehY" 
+               Name="Map" Mode="AerialWithLabels" Center="45.189004,5.724559" ZoomLevel="15" Margin="10,218,305,10"/>
 
         <Label Content="Trouvez les arrêts de bus autour de vous" HorizontalAlignment="Left" Margin="62,17,0,0" VerticalAlignment="Top" Height="26" Width="327"/>
 
@@ -25,10 +26,10 @@
         <TextBox Text="Distance" x:Name="Dist" HorizontalAlignment="Left" Height="26" Width="199" Margin="190,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
         <Button Content="Valider" Click="Button_Click" Background="LightBlue" HorizontalAlignment="Left" Margin="190,165,0,0" VerticalAlignment="Top" Width="75" Height="29"/>
-
         <ListBox x:Name="Result" Binding.SourceUpdated="Button_Click" Margin="423,52,32,102" />
         <Button Content="Reset" Click="Button_Reset" Background="LightGreen" HorizontalAlignment="Left" Margin="587,378,0,0" VerticalAlignment="Top" Width="75" Height="29"/>
         <Label Margin="423,13,32,457" Height="30" RenderTransformOrigin="0.5,0.5" Content="Nom des arrets alentours :"/>
+
 
 
 
