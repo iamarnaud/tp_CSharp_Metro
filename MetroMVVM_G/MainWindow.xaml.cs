@@ -24,7 +24,6 @@ namespace MetroMVVM
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +34,6 @@ namespace MetroMVVM
         private String Rentre { get; set; } // rayon
 
         public void Button_Click(object sender, RoutedEventArgs e)
-
         {
             Xentre = Lon.Text; // Lon
             Yentre = Lat.Text; // Lat
@@ -113,8 +111,6 @@ namespace MetroMVVM
             Map.Center = pinLocation;
             // Zoomer map sur nouvelle zone
             Map.ZoomLevel = 17;
-            
-
         }
 
         public void Button_Reset(object sender, RoutedEventArgs e)

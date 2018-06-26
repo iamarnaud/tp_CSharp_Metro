@@ -7,31 +7,28 @@
                   xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
                   mc:Ignorable="d"
                   d:DesignHeight="500" d:DesignWidth="700"
-                  Title="MainWindow" Width="700" Height="500" ResizeMode="NoResize">
+                  Title="Transport Grenoble" Width="700" Height="800" ResizeMode="NoResize">
 
     <Grid>
 
         <m:Map CredentialsProvider="AlIYClzyMbXh4GMtrvVi6xMfLfIxhKb2BiDZ1eihB5J4VEtA3FU-T5IGLzKVAehY" 
-               Name="Map" Mode="AerialWithLabels" Center="45.189004,5.724559" ZoomLevel="15" Margin="10,218,305,10"/>
+               Name="Map" Mode="AerialWithLabels" Center="45.189004,5.724559" ZoomLevel="15" Margin="82,431,82,68"/>
 
-        <Label Content="Trouvez les arrêts de bus autour de vous" HorizontalAlignment="Left" Margin="62,17,0,0" VerticalAlignment="Top" Height="26" Width="327"/>
+        <Label Content="Trouvez les transports autour de vous" HorizontalAlignment="Left" Margin="82,28,0,0" VerticalAlignment="Top" Height="66" Width="444" FontSize="22"/>
 
-        <Label Content="Longitude :" HorizontalAlignment="Left" Margin="115,84,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
-        <TextBox Text="45.189004" x:Name="Lat" HorizontalAlignment="Left" Height="26" Width="199" Margin="190,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Content="Longitude :" HorizontalAlignment="Left" Margin="102,141,0,0" VerticalAlignment="Top" Height="31" Width="82" FontSize="13"/>
+        <TextBox Text="45.189004" x:Name="Lat" HorizontalAlignment="Left" Height="26" Width="200" Margin="188,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <Label Content="Latitude :" HorizontalAlignment="Left" Margin="115,51,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
-        <TextBox Text="5.724559" x:Name="Lon" HorizontalAlignment="Left" Height="26"  Width="199" Margin="190,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Content="Latitude :" HorizontalAlignment="Left" Margin="102,108,0,0" VerticalAlignment="Top" Height="26" Width="82" FontSize="13"/>
+        <TextBox Text="5.724559" x:Name="Lon" HorizontalAlignment="Left" Height="26"  Width="200" Margin="188,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <Label Content="Distance :" HorizontalAlignment="Left" Margin="115,115,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
-        <TextBox Text="Distance" x:Name="Dist" HorizontalAlignment="Left" Height="26" Width="199" Margin="190,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Content="Distance :" HorizontalAlignment="Left" Margin="102,172,0,0" VerticalAlignment="Top" Height="26" Width="82" FontSize="13"/>
+        <TextBox Text="Distance" x:Name="Dist" HorizontalAlignment="Left" Height="26" Width="200" Margin="188,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <Button Content="Valider" Click="Button_Click" Background="LightBlue" HorizontalAlignment="Left" Margin="190,165,0,0" VerticalAlignment="Top" Width="75" Height="29"/>
-        <ListBox x:Name="Result" Binding.SourceUpdated="Button_Click" Margin="423,52,32,102" />
-        <Button Content="Reset" Click="Button_Reset" Background="LightGreen" HorizontalAlignment="Left" Margin="587,378,0,0" VerticalAlignment="Top" Width="75" Height="29"/>
-        <Label Margin="423,13,32,457" Height="30" RenderTransformOrigin="0.5,0.5" Content="Nom des arrets alentours :"/>
-
-
-
+        <Button Content="Valider" Click="Button_Click" Background="LightBlue" HorizontalAlignment="Left" Margin="450,141,0,0" VerticalAlignment="Top" Width="76" Height="29"/>
+        <ListBox x:Name="Result" Binding.SourceUpdated="Button_Click" Margin="82,292,82,345" />
+        <Button Content="Reset" Click="Button_Reset" Background="LightGreen" HorizontalAlignment="Left" Margin="450,715,0,0" VerticalAlignment="Top" Width="76" Height="30" RenderTransformOrigin="0.066,0.4"/>
+        <Label Margin="82,242,373,484" RenderTransformOrigin="0.5,0.5" Content="Nom des arrets alentours :" FontSize="16"/>
 
     </Grid>
 </Window>
