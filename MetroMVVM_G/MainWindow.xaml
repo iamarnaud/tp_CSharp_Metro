@@ -25,10 +25,10 @@
         <Label Content="Distance :" HorizontalAlignment="Left" Margin="102,172,0,0" VerticalAlignment="Top" Height="26" Width="82" FontSize="13"/>
         <TextBox Text="Distance" x:Name="Dist" HorizontalAlignment="Left" Height="26" Width="200" Margin="188,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <Button Content="Valider" Click="Button_Click" Background="LightBlue" HorizontalAlignment="Left" Margin="450,141,0,0" VerticalAlignment="Top" Width="76" Height="29"/>
-        <ListBox x:Name="Result" Binding.SourceUpdated="Button_Click" Margin="82,292,82,345" />
-        <Button Content="Reset" Click="Button_Reset" Background="LightGreen" HorizontalAlignment="Left" Margin="450,715,0,0" VerticalAlignment="Top" Width="76" Height="30" RenderTransformOrigin="0.066,0.4"/>
-        <Label Margin="82,242,373,484" RenderTransformOrigin="0.5,0.5" Content="Nom des arrets alentours :" FontSize="16"/>
+        <Button Content="Valider" Click="Button_Click" Background="#FF21177D" HorizontalAlignment="Left" Margin="450,141,0,0" VerticalAlignment="Top" Width="76" Height="29" Foreground="White" FontWeight="Bold" FontFamily="Noto Sans Lao" BorderBrush="#FF21177D"/>
+        <ListBox x:Name="Result" Binding.SourceUpdated="Button_Click" Margin="82,278,82,345" />
+        <Button Content="Reset" Click="Button_Reset" Background="#FF21177D" HorizontalAlignment="Left" Margin="450,715,0,0" VerticalAlignment="Top" Width="76" Height="30" RenderTransformOrigin="0.066,0.4" BorderBrush="#FF21177D" Foreground="White" FontWeight="Bold"/>
+        <Label Margin="82,228,373,498" RenderTransformOrigin="0.5,0.5" Content="Nom des arrets alentours :" FontSize="16"/>
 
     </Grid>
 </Window>
