@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
 using MaBibliotheque;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace MetroMVVM
 {
@@ -35,9 +36,9 @@ namespace MetroMVVM
         public void Button_Click(object sender, RoutedEventArgs e)
 
         {
-            Yentré = Lon.Text;
-            Xentré = Lat.Text;
-            Rentré = Dist.Text;
+            Xentré = Lon.Text; // Lat
+            Yentré = Lat.Text; // Lon
+            Rentré = Dist.Text; 
 
             try
             {
@@ -49,11 +50,13 @@ namespace MetroMVVM
 
                 /* itération ligne par ligne pour récupérer infos dans Lines
                 * soit lines soit lineSansDoublons
+                * et ajout des pins sur la carte
                 */
 
                 foreach (Lines line in lineSansDoublons)
                 {
                     Result.Items.Add(line.name);
+                    StopPin(line.lat, line.lon);
                 }
             }
             catch (Exception ex)
@@ -61,6 +64,27 @@ namespace MetroMVVM
                 Result.Items.Add("Numbers Only. Press reset to try again!");
                 Console.WriteLine(ex.GetType().FullName);
             }
+        }
+
+        public void StopPin(Double Lat, Double Lon)
+        {
+            //Convert the mouse coordinates to a location on the map
+            // Création d'un nouveau lieu avec lat et lon
+            Location pinLocation = new Location(Lat, Lon);
+
+            // The pushpin to add to the map.
+            // Pushpin est la classe définie par Maps
+            Pushpin pin = new Pushpin();
+            pin.Location = pinLocation;
+
+            // Adds the pushpin to the map.
+            Map.Children.Add(pin);
+        }
+
+        public void Button_Reset(object sender, RoutedEventArgs e)
+        {
+            Result.Items.Clear();
+            Map.Children.Clear();
         }
 
     }

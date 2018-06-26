@@ -4,34 +4,33 @@
                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:local="clr-namespace:MetroMVVM"
+                  xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
                   mc:Ignorable="d"
-                  d:DesignHeight="400" d:DesignWidth="800"
-                  Title="MainWindow" ResizeMode="NoResize">
+                  d:DesignHeight="500" d:DesignWidth="700"
+                  Title="MainWindow" Width="700" Height="500" ResizeMode="NoResize">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="192*"/>
-            <RowDefinition Height="13*"/>
-            <RowDefinition Height="166*"/>
-        </Grid.RowDefinitions>
 
-        <Label Content="Trouvez les arrêts de bus autour de vous" HorizontalAlignment="Left" Margin="58,17,0,0" VerticalAlignment="Top" Height="26" Width="223"/>
+        <m:Map CredentialsProvider="AlIYClzyMbXh4GMtrvVi6xMfLfIxhKb2BiDZ1eihB5J4VEtA3FU-T5IGLzKVAehY" Name="Map" Mode="AerialWithLabels" Center="45.189004,5.724559" ZoomLevel="15" Margin="10,218,305,10"/>
 
-        <Label Content="Longitude :" HorizontalAlignment="Left" Margin="115,48,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
-        <TextBox Text="45.189004" Name="Lon" HorizontalAlignment="Left" Height="23" Margin="190,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label Content="Trouvez les arrêts de bus autour de vous" HorizontalAlignment="Left" Margin="62,17,0,0" VerticalAlignment="Top" Height="26" Width="327"/>
 
-        <Label Content="Latitude :" HorizontalAlignment="Left" Margin="115,79,0,0" VerticalAlignment="Top" Height="26" Width="59"/>
-        <TextBox Text="5.724559" Name="Lat" HorizontalAlignment="Left" Height="23" Margin="190,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label Content="Longitude :" HorizontalAlignment="Left" Margin="115,84,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
+        <TextBox Text="45.189004" x:Name="Lat" HorizontalAlignment="Left" Height="26" Width="199" Margin="190,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <Label Content="Distance :" HorizontalAlignment="Left" Margin="115,111,0,0" VerticalAlignment="Top" Height="26" Width="61"/>
-        <TextBox Name="Dist" HorizontalAlignment="Left" Height="22" Margin="190,115,0,0" TextWrapping="Wrap" Text="Distance" VerticalAlignment="Top" Width="199"/>
+        <Label Content="Latitude :" HorizontalAlignment="Left" Margin="115,51,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
+        <TextBox Text="5.724559" x:Name="Lon" HorizontalAlignment="Left" Height="26"  Width="199" Margin="190,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <Button Content="Valider" Click="Button_Click" Background="LightBlue" HorizontalAlignment="Left" Margin="314,153,0,0" VerticalAlignment="Top" Width="75" Height="29"/>
+        <Label Content="Distance :" HorizontalAlignment="Left" Margin="115,115,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
+        <TextBox Text="Distance" x:Name="Dist" HorizontalAlignment="Left" Height="26" Width="199" Margin="190,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <Button Content="Valider" Click="Button_Click" Background="LightBlue" HorizontalAlignment="Left" Margin="190,165,0,0" VerticalAlignment="Top" Width="75" Height="29"/>
+
+        <ListBox x:Name="Result" Binding.SourceUpdated="Button_Click" Margin="423,52,32,102" />
+        <Button Content="Reset" Click="Button_Reset" Background="LightGreen" HorizontalAlignment="Left" Margin="587,378,0,0" VerticalAlignment="Top" Width="75" Height="29"/>
+        <Label Margin="423,13,32,457" Height="30" RenderTransformOrigin="0.5,0.5" Content="Nom des arrets alentours :"/>
 
 
-        <Label Margin="58,3,122,130" Grid.Row="2" RenderTransformOrigin="0.5,0.5">Nom des arrets alentours :
-        </Label>
-        <ListBox Name="Result" Binding.SourceUpdated="Button_Click" Margin="58,28,122,25" Grid.RowSpan="1" Grid.Row="2"/>
 
     </Grid>
 </Window>
