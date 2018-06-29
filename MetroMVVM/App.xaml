@@ -1,8 +1,8 @@
-﻿<Application x:Class="MetroMVVM_G.App"
+﻿<Application x:Class="MetroMVVM.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:MetroMVVM_G"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:MetroMVVM"
+             StartupUri="View/MetroView.xaml">
     <Application.Resources>
          
     </Application.Resources>

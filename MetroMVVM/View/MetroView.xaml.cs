@@ -16,56 +16,58 @@ using Newtonsoft.Json;
 using MaBibliotheque;
 using Microsoft.Maps.MapControl.WPF;
 using System.Globalization;
+using MetroMVVM.Model;
+using MetroMVVM.ViewModel;
 
-namespace MetroMVVM
+namespace MetroMVVM.View
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MetroView : UserControl
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
-
         private String Xentre { get; set; } // longitude
         private String Yentre { get; set; } // latitude
         private String Rentre { get; set; } // rayon
+
+        //On déclare une variable du type du ViewModel
+        private MetroViewModel _metroViewModel;
+
+        public MetroView()
+        {
+            InitializeComponent();
+            // à l'initialisation de l'app on instancie la variable précédement créée
+            _metroViewModel = new MetroViewModel();
+        }
 
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             Xentre = Lon.Text; // Lon
             Yentre = Lat.Text; // Lat
             Rentre = Dist.Text;
+            
+            //on appelle l'openData des transports via le model issu de notre ViewModel (= Lines)
+            _metroViewModel.LoadStops(Xentre, Yentre, Rentre);
 
-            try
+            //On réinitialise la valeur de base car à cause du "reset" elle a été mise à nul et ne peut plus retourner de valeurs
+            ListView.ItemsSource = _metroViewModel.Stops;
+
+            base.DataContext = _metroViewModel;
+
+           /**
+             * Boucle sur la méthode StopPin pour afficher les pushpins correspondants aux arrêts sur la map.
+             * Stops est la liste que l'on récupère grace à l'instance _metreViewModel créés dans ViewModel
+             */
+           foreach (MetroModel line in _metroViewModel.Stops)
             {
-                AppelApi metroMvvmApi = new AppelApi("http://data.metromobilite.fr/api/linesNear/json?x=" + Xentre + "&y=" + Yentre + "&dist=" + Rentre + "&details=true");
-
-                List<Lines> lines = JsonConvert.DeserializeObject<List<Lines>>(metroMvvmApi.responseFromServer);
-                List<Lines> lineSansDoublons = lines.GroupBy(n => n.name).Select(x => x.First()).ToList();
-
-                /* itération ligne par ligne pour récupérer infos dans Lines
-                * soit lines soit lineSansDoublons
-                * et ajout des pins sur la carte
-                */
-
-                YouAreHere(Yentre, Xentre);
-
-                foreach (Lines line in lineSansDoublons)
-                {
-                    Result.Items.Add(line.name);
-                    StopPin(line.lat, line.lon, line.name);
-                }
+                StopPin(line.lat, line.lon, line.name);
             }
-            catch (Exception ex)
-            {
-                Result.Items.Add("Numbers Only. Press reset to try again!");
-                Console.WriteLine(ex.GetType().FullName);
-            }
+
+            // On appelle la fonction qui place le pushpin "YourAreHere" sur la map
+            YouAreHere(Yentre, Xentre);
         }
 
+        // Récupération de tous les points de notre liste d'arrêts.
         public void StopPin(Double Lat, Double Lon, String name)
         {
             //Convert the mouse coordinates to a location on the map
@@ -112,10 +114,14 @@ namespace MetroMVVM
             // Zoomer map sur nouvelle zone
             Map.ZoomLevel = 17;
         }
-
+        
+        /*
+         * Quand on clic sur Reset, on dit que la listView devient null : remise à 0.
+         * Lorsque une nouvelle recherche sera effectuée via button_click l'itemSource de la ListView redeviendra _metroViewModel.Stops
+         */
         public void Button_Reset(object sender, RoutedEventArgs e)
         {
-            Result.Items.Clear();
+            ListView.ItemsSource = null;
             Map.Children.Clear();
         }
     }
